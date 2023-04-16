@@ -1,0 +1,117 @@
+﻿.dd {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    line-height: 20px
+}
+
+.dd-list, .dd-list > li {
+    margin: 0;
+    padding: 3px 0;
+    list-style: none;
+    border-bottom: 1px solid #f2f2f2;
+    clear: both
+}
+
+    .dd-list > li:last-child {
+        border-bottom: none
+    }
+
+    .dd-list:last-child {
+        border-bottom: none
+    }
+
+    .dd-list > li > * {
+        margin: 0;
+        margin-bottom: 5px
+    }
+
+    .dd-list .dd-list {
+        padding-left: 30px
+    }
+
+.dd-collapsed .dd-list {
+    display: none
+}
+
+.dd-empty {
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf
+}
+
+.dd-item > button {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    outline: none;
+    float: left;
+    width: 25px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    font-size: 1.2em;
+    line-height: 1;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10
+}
+
+    .dd-item > button:before {
+        content: '+';
+        display: block;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        text-indent: 0
+    }
+
+    .dd-item > button[data-action="collapse"]:before {
+        content: '-'
+    }
+
+.dd-handle {
+    cursor: move !important;
+}
+
+    .dd-handle i {
+        margin: 9px 0 9px 9px
+    }
+
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999
+}
+
+    .dd-dragel > .dd-item .dd-handle {
+        margin-top: 0
+    }
+
+.panel-heading .pull-right.btn {
+    margin-top: 10px;
+    margin-right: 20px
+}
+
+.dd-list > li .panel-control {
+    padding: 0
+}
+
+.dd-list > li .panel-title {
+    padding: 0 8px;
+    font-size: 13px !important
+}
+
+.dd-list, .dd-list > li {
+    border-bottom: 0
+}

@@ -1,0 +1,30 @@
+﻿.block-web {
+    padding: 0;
+    border: 1px solid #ddd;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #BFBFBF;
+    background-color: white;
+    box-shadow: 0px 4px 5px #aaaaaa;
+}
+
+.actions a {
+    cursor: pointer;
+}
+
+.block-web .actions a {
+    color: rgba(0,0,0,.3);
+    margin-left: 6px;
+}
+.block-web .actions a:hover, .block-web .actions a:focus {
+    color: #2a6496;
+    text-decoration: underline;
+}
+.submit-cat-link a {
+    color: #fff;
+}
+

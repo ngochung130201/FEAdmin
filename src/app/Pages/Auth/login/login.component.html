@@ -1,0 +1,61 @@
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <div class="login-brand">
+                    <img src="/assets/img/duyen-chau-logo.png" height="50" alt="...">
+            </div>
+
+            <div class="card card-primary shadow">
+              <div class="card-header">
+                <h4>Đăng nhập hệ thống</h4>
+              </div>
+
+              <div class="card-body">
+                <form asp-area="Admin" asp-controller="Account" asp-action="Login" method="POST"  class="needs-validation" novalidate="">
+                  @await Html.PartialAsync("Messages")
+                  @Html.HiddenFor(x => x.ReturnUrl)    
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input asp-for="Email" id="email" type="email" class="form-control" tabindex="1"
+                      required autofocus>
+                    <div class="invalid-feedback">
+                      Vui lòng nhập e-mail của bạn
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="d-block">
+                      <label for="password" class="control-label">Mật khẩu</label>
+                      <div class="float-right">
+                        <a href="/forgot-password" class="text-small">Quên mật khẩu</a>
+                      </div>
+                    </div>
+                    <input asp-for="Password" id="password" type="password" class="form-control" tabindex="2" required>
+                    <div class="invalid-feedback">
+                      Vui lòng nhập mật khẩu của bạn
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input asp-for="RememberMe" type="checkbox" class="custom-control-input" tabindex="3" id="remember-me">
+                      <label class="custom-control-label" for="remember-me">Nhớ mật khẩu lần sau</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                      Đăng nhập
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="simple-footer">
+              © 2022 Development by <a target="_blank" href="#">Fama</a>.
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+.a-sort {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+}
+.a-sort:hover{
+    text-decoration: none;
+    color: black;
+}
+.search-form {
+    display: inline-block;
+}
+
+.card .card-header .card-header-action .btn,
+.card .card-header .card-header-action select {
+    margin-right: 5px !important;
+}
+
+.card .card-header .search-form select option {
+    min-height: 20px !important;
+    line-height: 24px;
+    font-size: 14px;
+    margin: 5px 0;
+    display: block;
+    padding: 4px 0;
+}
+
+.card .card-header h4 {
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.table td .custom-checkbox.custom-control .custom-control-input,
+.table th .custom-checkbox.custom-control .custom-control-input {
+    position: relative;
+}
+
+.table td .custom-checkbox.custom-control .custom-control-label,
+.table th .custom-checkbox.custom-control .custom-control-label {
+    margin-bottom: 1rem;
+}
+
+.card-body .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.featured-upload {
+    position: relative;
+    width: 105px;
+    margin: 0;
+}
+
+    .featured-upload.banner {
+        width: 65px;
+    }
+
+    .featured-upload .featured-edit {
+        position: absolute;
+        right: 12px;
+        z-index: 1;
+        top: 10px;
+    }
+
+        .featured-upload .featured-edit input {
+            display: none;
+        }
+
+            .featured-upload .featured-edit input + label {
+                display: inline-block;
+                width: 34px;
+                height: 34px;
+                text-align: center;
+                line-height: 34px;
+                margin-bottom: 0;
+                border-radius: 100%;
+                background: #FFFFFF;
+                border: 1px solid transparent;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                font-weight: normal;
+                transition: all .2s ease-in-out;
+            }
+
+    .featured-upload.banner .featured-edit input + label {
+        width: 24px;
+        height: 24px;
+    }
+
+    .featured-upload .featured-edit input + label:hover {
+        background: #f1f1f1;
+        border-color: #d6d6d6;
+    }
+
+.featured-preview {
+    height: 92px;
+    width: 100%;
+    position: relative;
+    border: 6px solid #F8F8F8;
+}
+
+    .featured-preview > div {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+.featured-upload.banner .featured-preview {
+    height: 52px;
+    width: 100%;
+}
+
+.featured-img {
+    max-height: 35px;
+    max-width: 100px;
+}
+
+.featured-banner {
+    max-height: 65px;
+    max-width: 180px;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+}
+
+.custom-checkbox {
+    margin-top: 7px;
+}
+
+.table td {
+    position: relative;
+}
+
+.delete {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.delete-form {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    top: 12px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.title-form-domain-hosting {
+    background-color: #f2f4f8;
+    position: relative;
+}
+
+.area-form-domain-hosting:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+.invoice-detail {
+    flex-basis: 80%;
+    text-align: right;
+}
+
+.main-content-invoice-detail {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    width: 100%;
+    position: relative;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.done-payment {
+    color: #6fea6f;
+}
+
+.color-red {
+    color: red;
+}
+
+.file-input .form-control {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.file-input .btn {
+    line-height: 29px !important;
+}
+
+.download-file {
+    margin-top: 5px;
+    display: block;
+}
