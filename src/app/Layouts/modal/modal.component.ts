@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, EventEmitter, Output, TemplateRef } from '@angular/core';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ModalComponent {
 
+ 
 }
+  

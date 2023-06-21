@@ -1,0 +1,78 @@
+<div class="section-header">
+    <h1>Cập nhật</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">Trang chủ</a></div>
+        <div class="breadcrumb-item">Cập nhật</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4>Thông tin Loại sản phẩm</h4>
+            </div>
+            <div class="row">
+    
+               <div class="col-md-12">
+                   <form [formGroup]="blogCategoryFormEdit" (submit)="HandleEdit()" class="form-horizontal row-border" method="post" enctype="multipart/form-data">
+                       
+                        <div class="card-body">
+                            <input name="__requestverificationtoken" type="hidden" value="blxlgjcghizjz3y8iyphk08-dc-lydjgnftb_laceseoovelgurch9vpjsolqxhp-veyogmiiez2b-fte3d7mc8ehgik1ptjzgt5fcxim_cdxamdljj0ylqzuyt2lbmv0">                        
+                            <div class="form-group">
+                                <label  class="col-md-3 control-label">Tên Loại sản phẩm</label>
+                                <div class="col-md-12">
+                                    <input formControlName="postCateName"  class="form-control" id="translate_postCateName" name="postCateName" type="text" placeholder="Tên Loại sản phẩm">
+                                    <span asp-validation-for="postCateName" class="fst-italic text-danger input-validation"></span>
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label class="col-md-3 control-label">Sắp xếp </label>
+                                <div class="col-md-12">
+                                    <input formControlName="sort"  class="form-control" id="translate_urlredirect" name="sort" placeholder="sort" type="number">
+                                    <span  class="fst-italic text-danger input-validation"></span>
+                                </div>
+                            </div>
+                           
+                        
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Danh mục cha</label>
+                                <div class="col-md-12">
+                                    <input formControlName="parentID" class="form-control" id="translate_urlredirect" name="parentID" placeholder="Danh mục cha" type="number">
+                                    <span class="fst-italic text-danger input-validation"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">MetaKeyword</label>
+                                <div class="col-md-12">
+                                    <input formControlName="metaKeyword" class="form-control" id="translate_urlredirect" name="metaKeyword" placeholder="MetaKeyword" type="text">
+                                    <span class="fst-italic text-danger input-validation"></span>
+                                </div>
+                            </div>
+                         
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">MtaDescription</label>
+                                <div class="col-md-12">
+                                    <input formControlName="metaDescription" class="form-control" id="translate_urlredirect" name="metaKeyword" placeholder="MetaKeyword" type="text">
+                                    <span class="fst-italic text-danger input-validation"></span>
+                                </div>
+                            </div>
+                          
+                            
+                        </div>
+                          <div class="card-footer text-right">
+                                <div class="bu-group">
+                                    <div class="form-group-center" id="text-center">
+                                        <button type="submit"  class="btn btn-success mr-2"><i class="fa fa-check"></i> Cập nhật </button>
+                                        <a  class="btn btn-danger"><i class="fa fa-times"></i> Hủy bỏ</a>
+                                    </div>
+                                </div>
+                          </div>
+                    </form>
+               </div>
+        
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

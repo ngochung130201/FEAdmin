@@ -39,6 +39,55 @@ import { EditProductCategoryComponent } from './Pages/ProductCategory/edit-produ
 import { DeleteProductCategoryComponent } from './Pages/ProductCategory/delete-product-category/delete-product-category.component';
 import { DetailContactComponent } from './Pages/Contact/detail-contact/detail-contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { IndexMenuComponent } from './Pages/Menu/index-menu/index-menu.component';
+import { AddMenuComponent } from './Pages/Menu/add-menu/add-menu.component';
+import { EditMenuComponent } from './Pages/Menu/edit-menu/edit-menu.component';
+import { DeleteMenuComponent } from './Pages/Menu/delete-menu/delete-menu.component';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditSuppliersComponent } from './Pages/Supplier/edit-suppliers/edit-suppliers.component';
+import { DeleteSuppliersComponent } from './Pages/Supplier/delete-suppliers/delete-suppliers.component';
+import { AddSuppliersComponent } from './Pages/Supplier/add-suppliers/add-suppliers.component';
+import { IndexSuppliersComponent } from './Pages/Supplier/index-suppliers/index-suppliers.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { IndexSliderComponent } from './Pages/Slider/index-slider/index-slider.component';
+import { AddSliderComponent } from './Pages/Slider/add-slider/add-slider.component';
+import { EditSliderComponent } from './Pages/Slider/edit-slider/edit-slider.component';
+import { NgToastModule } from 'ng-angular-popup';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { EditorModule } from 'primeng/editor';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import { CKEditorModule } from 'ng2-ckeditor';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ButtonModule } from 'primeng/button';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { IndexBlogCategoryComponent } from './Pages/BlogCategory/index-blog-category/index-blog-category.component';
+import { AddBlogCategoryComponent } from './Pages/BlogCategory/add-blog-category/add-blog-category.component';
+import { EditBlogCategoryComponent } from './Pages/BlogCategory/edit-blog-category/edit-blog-category.component';
+import { ProductCommentComponent } from './Pages/ProductComment/product-comment/product-comment.component';
+import { DetailProductCommentComponent } from './Pages/ProductComment/detail-product-comment/detail-product-comment.component';
+import { DetailPostCommentComponent } from './Pages/PostComment/detail-post-comment/detail-post-comment.component';
+import { PostCommentComponent } from './Pages/PostComment/post-comment/post-comment.component';
+
+import { CommonModule } from '@angular/common';
+import { ChartModule } from 'primeng/chart';
+import { MenuModule } from 'primeng/menu';
+import { TableModule } from 'primeng/table';
+import { StyleClassModule } from 'primeng/styleclass';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { OrderComponent } from './Pages/Order/order/order.component';
+import { ChartComponent } from './Pages/Order/chart/chart.component';
+import { OrderDetailComponent } from './Order/order-detail/order-detail.component';
+import { OrderEditComponent } from './Order/order-edit/order-edit.component';
+import { UserComponent } from './Pages/user/user.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,15 +123,68 @@ import { HttpClientModule } from '@angular/common/http';
     EditProductCategoryComponent,
     DeleteProductCategoryComponent,
     DetailContactComponent,
+    IndexMenuComponent,
+    AddMenuComponent,
+    EditMenuComponent,
+    DeleteMenuComponent,
+    EditSuppliersComponent,
+    DeleteSuppliersComponent,
+    AddSuppliersComponent,
+    IndexSuppliersComponent,
+    IndexSliderComponent,
+    AddSliderComponent,
+    EditSliderComponent,
+    IndexBlogCategoryComponent,
+    AddBlogCategoryComponent,
+    EditBlogCategoryComponent,
+    ProductCommentComponent,
+    DetailProductCommentComponent,
+    DetailPostCommentComponent,
+    PostCommentComponent,
+    OrderComponent,
+    ChartComponent,
+    OrderDetailComponent,
+    OrderEditComponent,
+    UserComponent,
+    
+
+
 
   ],
   imports: [
+    CommonModule,
+    ChartModule,
+    MenuModule,
+    TableModule,
+    StyleClassModule,
+    PanelMenuModule,
     MatDialogModule, 
     MatButtonModule,
+    ButtonModule,
+    DialogModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    CKEditorModule,
+    EditorModule, 
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    ToastrModule,
+    ToastModule,
+    NgToastModule,
+    MatCheckboxModule,
+    FileUploadModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    BrowserAnimationsModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

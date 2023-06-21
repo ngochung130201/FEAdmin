@@ -17,48 +17,49 @@
            
             <li class="dropdown">
              
-                <a href="#" class="nav-link has-dropdown"><i class="fa fa-map"></i><span>Quản lý Sản phẩm</span></a>
+                <a href="" class="nav-link has-dropdown"><i class="fa fa-map"></i><span>Quản lý Sản phẩm</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" [routerLink]="'ProductCategpry'">Loại sản phẩm</a></li>
                     <li><a class="nav-link" [routerLink]="'Brand'">Thương hiệu </a></li>
-                    <li><a class="nav-link" [routerLink]="'Product'">Nhà cung cấp </a></li>
+                    <li><a class="nav-link" [routerLink]="'Supplier'">Nhà cung cấp </a></li>
                     <li><a class="nav-link" [routerLink]="'Product'">Sản phẩm </a></li>
-                    <li><a class="nav-link" [routerLink]="'Product'">Bình luận</a></li>
+                    <li><a class="nav-link" [routerLink]="'ProductComment'">Bình luận</a></li>
                 
                 </ul>
             </li>
         
             <li class="dropdown">
              
-                <a href="#" class="nav-link has-dropdown"><i class="fa fa-map"></i><span>Quản lý Giỏ hàng</span></a>
+                <a href="" class="nav-link has-dropdown"><i class="fa fa-map"></i><span>Quản lý Giỏ hàng</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" [routerLink]="'ProductCategpry'">Giỏ hàng</a></li>
-                    <li><a class="nav-link" [routerLink]="'Product'">Thống kê </a></li>
+                    <li><a class="nav-link" [routerLink]="'Order'">Giỏ hàng</a></li>
+                    <li><a class="nav-link" [routerLink]="'Chart'">Thống kê </a></li>
               
                 
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fa fa-book"></i><span>Dịch vụ và Blog</span></a>
+                <a href="" class="nav-link has-dropdown"><i class="fa fa-book"></i><span>Dịch vụ và Blog</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" asp-action="Index" asp-controller="Categories">Chuyên mục</a></li>
+                    <li><a class="nav-link" routerLink="BlogCategory" >Chuyên mục</a></li>
                     <li><a class="nav-link" [routerLink]="'Blog'">Bài viết</a></li>
-                    <li><a class="nav-link" asp-action="Index" asp-controller="ArticleReviews">Bình luận</a></li>
+                  
                 </ul>
             </li>
           
-            <li><a class="nav-link" asp-action="Index" asp-controller="Sliders"><i class="fa fa-picture-o"></i> <span>Quản lý Sliders</span></a></li>
-            <li><a class="nav-link" asp-action="Index" asp-controller="Testimonial"><i class="fa fa-star"></i> <span>Đánh giá khách hàng</span></a></li>
-            <li><a class="nav-link" asp-action="UpdateDataTravel" asp-controller="Pages"><i class="fa fa-question-circle"></i> <span>Why Choose Us</span></a></li>
+            <li><a class="nav-link" routerLink="Slider" ><i class="fa fa-picture-o"></i> <span>Quản lý Sliders</span></a></li>
+          
             <li><a class="nav-link" routerLink="Contacts/Index" ><i class="fa fa-phone"></i> <span>Liên hệ</span></a></li>
+            <li><a class="nav-link" routerLink="User/Index" ><i class="fa fa-user"></i> <span>Nhân viên</span></a></li>
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fa fa-cog"></i><span>Cài đặt Website</span></a>
+                <a href="" class="nav-link has-dropdown"><i class="fa fa-cog"></i><span>Cài đặt Website</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" routerLink="/Settings/Index" >Cài đặt chung</a></li>
-                     <li><a class="nav-link" asp-action="Index" asp-controller="Pages">Page thông tin</a></li>
-                    <li><a class="nav-link" asp-action="Index" asp-controller="Menus">Cài đặt menu</a></li>
+                  
+                    <li><a class="nav-link" routerLink="Menu">Cài đặt menu</a></li>
                 </ul>
             </li>
         </ul>
+        
     </aside>
 </div>

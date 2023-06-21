@@ -41,15 +41,15 @@
                                         <a class="a-sort" href="">Ngày liên hệ <i class='fas fa-sort'></i></a>
                                     </th>
                                     <th>Tiêu đề</th>
-                                    <th>Họ và tên đệm</th>
                                     <th>Tên</th>
                                     <th>Email</th>
                                     <th>SĐT</th>
+                                    <th>Địa chỉ</th>
                                     <th>Nội dung</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                
-                                    <tr>
+                                    <tr *ngFor="let contact of getContacts">
                                         <td>
                                            <div class="custom-checkbox custom-control">
                                                <input type="checkbox" class="custom-control-input chk-item" value="@item.ID" id="ckkAll_@item.ID">
@@ -57,32 +57,46 @@
                                            </div>
                                         </td>
                                         <td>
-                                           item.DateCreated
+                                           {{contact.createDate}}
                                         </td>
                                         <td>
-                                           item.Subject
+                                           {{contact.subject}}
                                         </td>
                                         <td>
-                                           item.LastName
+                                          {{contact.name}}
+                                        </td>
+                                  
+                                        <td>
+                                           {{contact.email}}
                                         </td>
                                         <td>
-                                           item.FirstName
+                                           {{contact.phone}}
                                         </td>
                                         <td>
-                                           item.Email
+                                            {{contact.address}}
+                                         </td>
+                                        <td>
+                                           {{contact.body}}
                                         </td>
                                         <td>
-                                           item.Phone
-                                        </td>
-                                        <td>
-                                           item.Message
-                                        </td>
-                                        <td>
-                                           <a routerLink="/Contacts/Detail" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Chi tiết" data-placement="bottom"><i class="fa fa-eye"></i></a>
-                                            <a data-modal="true" data-target="#modelUpdate" href="" class="btn btn-danger d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></a>
+                                           <a routerLink="/Contacts/Detail/{{contact.contactId}}" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Chi tiết" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                          
+                                        <button style="width: 100%;" (click)="openDialogWithTemplateRef(myDialog,contact.contactId,contact.name)" class="btn btn-danger  d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    
+                                      <!-- Dialog template -->
+                                  <ng-template #myDialog let-data>
+                                    <h2 matDialogTitle>Xóa liên hệ </h2>
+                                    <mat-dialog-content>
+                                      <p>Bạn có chắc muốn xóa liên hệ  {{data.name}}</p>
+                                    </mat-dialog-content>
+                                    <mat-dialog-actions align="end">
+                                        <button mat-button matDialogClose="no">Hủy</button>
+                                      <button  mat-raised-button  color="warn"  matDialogClose  (click)="handleDelete(data.contactId)" >Xóa</button>
+                                    </mat-dialog-actions>
+                                  </ng-template>
+                                  <!-- Dialog template #2 -->
+                              
                                 
                             </tbody>
                         </table>

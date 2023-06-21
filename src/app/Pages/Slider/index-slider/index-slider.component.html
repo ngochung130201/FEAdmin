@@ -1,0 +1,138 @@
+
+<div class="section-header">
+    <h1>Danh sách Slider</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a asp-action="Index" asp-controller="Home">Trang chủ</a></div>
+        <div class="breadcrumb-item">Slider</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Danh sách Slider</h4>
+                <div class="card-header-action">
+                    <a routerLink="/Slider/Add"  class="btn btn-info"><i class="fas fa-plus"></i> Thêm Slider </a>
+                    
+                    <div class="dropdown show">
+                        <a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle" aria-expanded="true">Hành động</a>
+                        <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                            <li><a class="dropdown-item delete-all" href="javascript:void(0);" data-url="/Admin/Products/DeleteAll">Xóa mục chọn</a></li>
+                            <li>
+                                <a class="dropdown-item updated-multiple" href="javascript:void(0);" data-url="/Admin/Products/UpdatedMultiple"
+                                   data-type="status_processing">Mở xử lý mục chọn</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item updated-multiple" href="javascript:void(0);" data-url="/Admin/Products/UpdatedMultiple"
+                                   data-type="status_cancel">Hủy mục chọn</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="search-form" autocomplete="off" asp-action="Index" asp-controller="Products" method="get">
+                        <div class="input-group">
+                            <select name="filterBy" class="btn btn-warning dropdown-toggle">
+                                <option value="all">Lọc theo</option>
+                                <option value="all">Tất cả</option>
+                                <option value="construction">Công trình</option>
+                                <option value="product">Slider</option>
+                            </select>
+                           
+                            <input type="text" class="form-control" name="searchString"  placeholder="Từ khóa">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body p-0">
+              
+                
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr class="text-left">
+                                <th scope="col">
+                                    <div class="custom-checkbox custom-control">
+                                        <input type="checkbox" class="custom-control-input" id="ckkAll">
+                                        <label class="custom-control-label" for="ckkAll"></label>
+                                    </div>
+                                </th>
+                                <th>Hình Ảnh</th>
+                               
+                                <th scope="col" class="text-dark text-deconration-none">
+                                    <a class="a-sort" href="">Tên Slider <i class='fas fa-sort'></i></a>
+                                </th>
+                            
+                                <th scope="col">Hành động</th>
+                            </tr>
+                           
+                                <tr *ngFor="let slider of getSliders">
+                                    <td>
+                                        <div class="custom-checkbox custom-control">
+                                            <input type="checkbox" class="custom-control-input chk-item" value="@item.ID" id="ckkAll_@item.ID">
+                                            <label class="custom-control-label" for="ckkAll_@item.ID"></label>
+                                        </div>
+                                    </td>
+                                   
+                                        
+                                            <td class="text-left">
+                                                <img class="img-thumbnail" src="{{slider.image}}" height="150" width="150" />
+                                            </td>
+                                       
+                     
+                                   
+                                    <td class="text-left">
+                                        {{slider.title}}
+                                   
+                                        
+                                    </td>
+                                    
+                                    <td>
+                                        <a style="width: 100%;" routerLink="Edit/{{slider.id}}" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Sửa" data-placement="bottom"><i class="fas fa-pencil-alt"></i></a>
+                                       
+                                        <button style="width: 100%;" (click)="openDialogWithTemplateRef(myDialog,slider.id,slider.title)" class="btn btn-danger  d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></button>
+                                       
+                                    </td>
+                                </tr>
+                           
+                                  <br>
+                                 
+                               
+                                  <!-- Dialog template -->
+                                  <ng-template #myDialog let-data>
+                                    <h2 matDialogTitle>Xóa Slider </h2>
+                                    <mat-dialog-content>
+                                      <p>Bạn có chắc muốn xóa Slider  {{data.sliderName}}</p>
+                                    </mat-dialog-content>
+                                    <mat-dialog-actions align="end">
+                                        <button mat-button matDialogClose="no">Hủy</button>
+                                      <button  mat-raised-button  color="warn"  matDialogClose  (click)="handleDelete(data.id)" >Xóa</button>
+                                    </mat-dialog-actions>
+                                  </ng-template>
+                                  <!-- Dialog template #2 -->
+                              
+                                  
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-template #callAPIDialog>
+                <h2 matDialogTitle>Hello dialog!</h2>
+                <mat-dialog-actions align="end">
+                    <button mat-button matDialogClose="no">No</button>
+                    <button mat-button matDialogClose="yes">Yes</button>
+                </mat-dialog-actions>
+            </ng-template>
+           
+            <div class="card-footer data_paginate text-left">
+              
+            </div>
+         
+        </div>
+    </div>
+</div>
+
+<!-- <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button> -->

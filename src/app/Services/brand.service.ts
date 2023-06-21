@@ -2,31 +2,41 @@ import { Injectable } from '@angular/core';
 import { TyBrand } from '../Types/brand';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../Global/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BrandService {
   constructor(private http: HttpClient) { }
-  private readonly baseUrl = 'https://localhost:7177/api/Brand';
+  private readonly baseUrl = environment.apiUrl+'/Brand';
 
   public getAllBrand(): Observable<TyBrand[]> {
     return this.http.get<TyBrand[]>(`${this.baseUrl}`);
   }
 
-  public deleteBrand(id: string): Observable<TyBrand[]> {
+  public deleteBrand(id: number): Observable<TyBrand[]> {
     return this.http.delete<TyBrand[]>(`${this.baseUrl}/${id}`);
   }
 
-  public createBrand(data: TyBrand): Observable<number> {
-    return this.http.post<number>(`${this.baseUrl}`, data);
+  public createBrand(brand: TyBrand): Observable<any> {
+    return this.http.post<number>(`${this.baseUrl}`, brand);
   }
 
-  public getBrand(id: string): Observable<TyBrand> {
+  public getBrand(id: number): Observable<TyBrand> {
     return this.http.get<TyBrand>(`${this.baseUrl}/${id}`);
   }
-
-  public updateBrand(id: string, data: TyBrand) {
+  UploadImage(inpudata:any){
+    return this.http.post("https://localhost:44308/api/Product/UploadImage",inpudata,{
+      reportProgress:true,
+      observe:'events'
+    });
+  }
+  RemoveImage(code:any){
+    return this.http.get("https://localhost:44308/api/Product/RemoveImage/"+code);
+  }
+  public updateBrand(id: number, data: TyBrand) {
     return this.http.put(`${this.baseUrl}/${id}`, data);
   }
 

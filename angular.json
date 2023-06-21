@@ -34,10 +34,20 @@
               "src/styles.scss",
               "src/assets/lib/bootstrap-fileinput/css/fileinput.css",
               "src/assets/themes/backend/assets/plugins/nestable/nestable.css",
-              "src/assets/themes/backend/assets/app.css"
+              "src/assets/themes/backend/assets/app.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "src/assets/layout/styles/layout/layout.scss",
+            
+               "node_modules/primeflex/primeflex.scss",
+               "node_modules/primeicons/primeicons.css",
+         
+        
+            "src/assets/demo/styles/flags/flags.css",
+            "src/assets/demo/styles/badges.scss",
+            "src/assets/demo/styles/code.scss"
             ],
             "scripts": [
-
               "src/assets/themes/backend/assets/modules/jquery.min.js",
               "src/assets/themes/backend/assets/modules/popper.js",
               "src/assets/themes/backend/assets/modules/tooltip.js",
@@ -53,14 +63,16 @@
               "src/assets/themes/backend/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js",
               "src/assets/themes/backend/assets/modules/select2/dist/js/select2.full.min.js",
               "src/assets/themes/backend/assets/modules/jquery-selectric/jquery.selectric.min.js",
-              "src/assets/themes/backend/assets/modules/izitoast/js/iziToast.min.js", 
+              "src/assets/themes/backend/assets/modules/izitoast/js/iziToast.min.js",
               "src/assets/themes/backend/assets/emoji/js/config.js",
               "src/assets/themes/backend/assets/emoji/js/emoji.js",
               "src/assets/themes/backend/assets/js/scripts.js",
               "src/assets/themes/backend/assets/js/custom.js",
               "src/assets/themes/backend/assets/js/uploadImage.js",
               "src/assets/themes/backend/assets/plugins/nestable/jquery.nestable.js",
-              "src/assets/themes/backend/assets/js/utils.js"
+              "src/assets/themes/backend/assets/js/utils.js",
+              "node_modules/chart.js/dist/chart.js",
+              "/node_modules/chart.js/dist/chart.js"
             ]
           },
           "configurations": {
@@ -126,37 +138,44 @@
               "src/styles.scss",
               "src/assets/lib/bootstrap-fileinput/css/fileinput.css",
               "src/assets/themes/backend/assets/plugins/nestable/nestable.css",
-              "src/assets/themes/backend/assets/app.css"
+              "src/assets/themes/backend/assets/app.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "src/assets/layout/styles/layout/layout.scss",
+        
+              "node_modules/primeflex/primeflex.scss",
+              "node_modules/primeicons/primeicons.css",
+     
+        
+              "src/assets/demo/styles/flags/flags.css",
+              "src/assets/demo/styles/badges.scss",
+              "src/assets/demo/styles/code.scss"
             ],
             "scripts": [
-            "src/assets/themes/backend/assets/modules/jquery.min.js",
-            "src/assets/themes/backend/assets/modules/popper.js",
-            "src/assets/themes/backend/assets/modules/tooltip.js",
-            "src/assets/themes/backend/assets/modules/bootstrap/js/bootstrap.min.js",
-            "src/assets/themes/backend/assets/modules/summernote/summernote-bs4.js",
-            "src/assets/themes/backend/assets/modules/tinymce/tinymce.min.js",
-          
-            "src/assets/themes/backend/assets/modules/nicescroll/jquery.nicescroll.min.js",
-            "src/assets/themes/backend/assets/modules/moment.min.js",
-            "src/assets/themes/backend/assets/js/theme.js",
-            "src/assets/themes/backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js",
-            "src/assets/themes/backend/assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js",
-            "src/assets/lib/bootstrap-fileinput/js/fileinput.js",
-          
-            "src/assets/themes/backend/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js",
-            "src/assets/themes/backend/assets/modules/select2/dist/js/select2.full.min.js",
-            "src/assets/themes/backend/assets/modules/jquery-selectric/jquery.selectric.min.js",
-            "src/assets/themes/backend/assets/modules/izitoast/js/iziToast.min.js",
-              
-            "src/assets/themes/backend/assets/emoji/js/config.js",
-            "src/assets/themes/backend/assets/emoji/js/emoji.js",
-            "src/assets/themes/backend/assets/js/scripts.js",
-            "src/assets/themes/backend/assets/js/custom.js",
-            "src/assets/themes/backend/assets/js/uploadImage.js",
-            "src/assets/themes/backend/assets/plugins/nestable/jquery.nestable.js",
-            "src/assets/themes/backend/assets/js/utils.js"
-
-
+              "src/assets/themes/backend/assets/modules/jquery.min.js",
+              "src/assets/themes/backend/assets/modules/popper.js",
+              "src/assets/themes/backend/assets/modules/tooltip.js",
+              "src/assets/themes/backend/assets/modules/bootstrap/js/bootstrap.min.js",
+              "src/assets/themes/backend/assets/modules/summernote/summernote-bs4.js",
+              "src/assets/themes/backend/assets/modules/tinymce/tinymce.min.js",
+              "src/assets/themes/backend/assets/modules/nicescroll/jquery.nicescroll.min.js",
+              "src/assets/themes/backend/assets/modules/moment.min.js",
+              "src/assets/themes/backend/assets/js/theme.js",
+              "src/assets/themes/backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js",
+              "src/assets/themes/backend/assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js",
+              "src/assets/lib/bootstrap-fileinput/js/fileinput.js",
+              "src/assets/themes/backend/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js",
+              "src/assets/themes/backend/assets/modules/select2/dist/js/select2.full.min.js",
+              "src/assets/themes/backend/assets/modules/jquery-selectric/jquery.selectric.min.js",
+              "src/assets/themes/backend/assets/modules/izitoast/js/iziToast.min.js",
+              "src/assets/themes/backend/assets/emoji/js/config.js",
+              "src/assets/themes/backend/assets/emoji/js/emoji.js",
+              "src/assets/themes/backend/assets/js/scripts.js",
+              "src/assets/themes/backend/assets/js/custom.js",
+              "src/assets/themes/backend/assets/js/uploadImage.js",
+              "src/assets/themes/backend/assets/plugins/nestable/jquery.nestable.js",
+              "src/assets/themes/backend/assets/js/utils.js",
+              "/node_modules/chart.js/dist/chart.js"
             ]
           }
         }

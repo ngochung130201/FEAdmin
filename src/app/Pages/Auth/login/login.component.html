@@ -3,7 +3,7 @@
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-                    <img src="/assets/img/duyen-chau-logo.png" height="50" alt="...">
+                    <img src="https://canthoplus.com/wp-content/uploads/2019/06/phong-v%C5%A9-c%E1%BA%A7n-th%C6%A1.jpg" height="50" alt="...">
             </div>
 
             <div class="card card-primary shadow">
@@ -12,18 +12,15 @@
               </div>
 
               <div class="card-body">
-                <form asp-area="Admin" asp-controller="Account" asp-action="Login" method="POST"  class="needs-validation" novalidate="">
-                  @await Html.PartialAsync("Messages")
-                  @Html.HiddenFor(x => x.ReturnUrl)    
+                <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input asp-for="Email" id="email" type="email" class="form-control" tabindex="1"
-                      required autofocus>
+                    <input [(ngModel)]="email" name="email" id="email" type="email" class="form-control" tabindex="1" required autofocus>
                     <div class="invalid-feedback">
-                      Vui lòng nhập e-mail của bạn
+                      Vui lòng nhập email của bạn
                     </div>
                   </div>
-
+                
                   <div class="form-group">
                     <div class="d-block">
                       <label for="password" class="control-label">Mật khẩu</label>
@@ -31,29 +28,30 @@
                         <a href="/forgot-password" class="text-small">Quên mật khẩu</a>
                       </div>
                     </div>
-                    <input asp-for="Password" id="password" type="password" class="form-control" tabindex="2" required>
+                    <input [(ngModel)]="password" name="password" id="password" type="password" class="form-control" tabindex="2" required>
                     <div class="invalid-feedback">
                       Vui lòng nhập mật khẩu của bạn
                     </div>
                   </div>
-
+                
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
-                      <input asp-for="RememberMe" type="checkbox" class="custom-control-input" tabindex="3" id="remember-me">
+                      <input [(ngModel)]="rememberMe" name="rememberMe" type="checkbox" class="custom-control-input" tabindex="3" id="remember-me">
                       <label class="custom-control-label" for="remember-me">Nhớ mật khẩu lần sau</label>
                     </div>
                   </div>
-
+                
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Đăng nhập
                     </button>
                   </div>
                 </form>
+                
               </div>
             </div>
             <div class="simple-footer">
-              © 2022 Development by <a target="_blank" href="#">Fama</a>.
+              © 2022 Development by <a target="_blank" href="#">Huỳnh Ngọc Hưng</a>.
             </div>
           </div>
         </div>

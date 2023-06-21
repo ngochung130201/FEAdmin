@@ -1,20 +1,26 @@
-<div id="app">
+<!-- Hiển thị trang login nếu chưa đăng nhập -->
+<ng-container *ngIf="!isLoggedIn">
+    <app-login></app-login>
+  </ng-container>
+  
+  <!-- Hiển thị nội dung của <div id="app"> nếu đã đăng nhập -->
+  <div id="app" *ngIf="isLoggedIn">
     <div class="main-wrapper main-wrapper-1">
-        <div class="navbar-bg"></div>
-        <app-sidebar></app-sidebar>
-        <app-header></app-header>
-   
-
-        <div class="main-content">
-            <section class="section">
-                <router-outlet></router-outlet>
-            </section>
-           <app-modal></app-modal>
-        </div>
-
-        <!-- .container -->
-        <footer class="main-footer">
-            <p class="text-center">All right reserved. Development by <a href="https://fama.com.vn">Fama</a>.</p>
-        </footer>
+      <div class="navbar-bg"></div>
+      <app-sidebar></app-sidebar>
+      <app-header></app-header>
+  
+      <div class="main-content">
+        <section class="section">
+          <router-outlet></router-outlet>
+        </section>
+        <app-modal></app-modal>
+      </div>
+  
+      <!-- .container -->
+      <app-footer></app-footer>
     </div>
-</div>
+  </div>
+  
+  <lib-ng-toast></lib-ng-toast>
+  

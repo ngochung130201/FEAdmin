@@ -9,23 +9,120 @@
         <ul class="navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                    <img alt="image" src="~/media/avatar.png" class="rounded-circle mr-1">
+                    <img alt="image" src="https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-gau-cute.jpg" class="rounded-circle mr-1">
                     <div class="d-sm-none d-lg-inline-block">
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="/admin/account/info" class="dropdown-item has-icon" data-modal="true" data-toggle="modal" data-target="#modelUpdate">
-                        <i class="far fa-user"></i> Huynh Ngoc Hung
-                    </a>
-                    <a href="/admin/account/changepassword" class="dropdown-item has-icon" data-modal="true" data-toggle="modal" data-target="#modelUpdate">
+                    <button  (click)="showDialog('top')" class="dropdown-item has-icon" data-modal="true" data-toggle="modal" data-target="#modelUpdate">
+                        <i class="far fa-user"></i> {{getEmailLabel()}}
+                    </button>
+                    <button  (click)="showDialog2('top')" class="dropdown-item has-icon" data-modal="true" data-toggle="modal" data-target="#modelUpdate">
                         <i class="fas fa-key"></i> Đổi mật khẩu
-                    </a>
-                    <a href="/admin/account/logout" class="dropdown-item has-icon text-danger">
+                    </button>
+                    <a (click)="Logout()" class="dropdown-item has-icon text-danger">
                         <i class="fas fa-sign-out-alt"></i> Đăng xuất
                     </a>
                 </div>
             </li>
         </ul>
-    
-    
+      <div class="top-0">
+        <p-dialog header="Thông tin tài khoản" [(visible)]="visible" [style]="{width: '40vw'}">
+          <form class="example-form" style="display: flex; justify-content: center; flex-direction: column;">
+            <table class="example-full-width">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width w-100">
+                    <mat-label>Họ</mat-label>
+                    <input [(ngModel)]="lastName" matInput name="lastName">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width w-100">
+                    <mat-label>Tên</mat-label>
+                    <input [(ngModel)]="firstName" matInput name="firstName">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+          
+            <p>
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>Email</mat-label>
+                <input [value]="getEmailLabel()" disabled matInput>
+              </mat-form-field>
+            </p>
+          
+            <p>
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>Số điện thoại</mat-label>
+                <input [(ngModel)]="phoneNumber" matInput name="phoneNumber">
+              </mat-form-field>
+            </p>
+          
+            <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Sinh nhật</mat-label>
+                <input [(ngModel)]="birthday" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="birthday">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </p>
+          
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width w-100">
+                    <mat-label>Ngày tạo</mat-label>
+                    <input [value]="dateCreated" disabled="true" matInput placeholder="" name="dateCreated">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+          
+            <div class="flex-custom">
+              <button (click)="updateInfo()" mat-flat-button color="primary">Cập nhật</button>
+            </div>
+          </form>
+        </p-dialog>
+        
+      </div>
+      <div class="">
+        <p-dialog header="Đổi mật khẩu" [(visible)]="visible2" [style]="{width: '40vw'}">
+          <form class="example-form" style="display: flex; justify-content: center; flex-direction: column;">
+            <table class="example-full-width">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width w-100">
+                    <mat-label>Mật khẩu hiện tại</mat-label>
+                    <input type="password" [(ngModel)]="currentPassword" name="currentPassword" matInput>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width w-100">
+                    <mat-label>Mật khẩu mới</mat-label>
+                    <input type="password" [(ngModel)]="newPassword" name="newPassword" matInput>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width w-100">
+                    <mat-label>Xác nhận mật khẩu mới</mat-label>
+                    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" matInput>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <div class="flex-custom">
+              <button (click)="updatePassword()" mat-flat-button color="primary">Lưu thay đổi</button>
+            </div>
+          </form>
+        </p-dialog>
+        
+        
+      </div>
 </nav>

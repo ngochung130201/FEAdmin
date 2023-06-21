@@ -1,0 +1,80 @@
+<div class="section-header">
+    <h1>Chi tiết đơn đặt hàng</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a asp-action="Index" asp-controller="Home">Trang chủ</a></div>
+        <div class="breadcrumb-item">Chi tiết đơn đặt hàng</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Chi tiết đơn đặt hàng</h4>
+            </div>
+            <div class="card-body p-0">
+
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr class="text-left">
+                                <th scope="col">
+                                    <div class="custom-checkbox custom-control">
+                                        <input type="checkbox" class="custom-control-input" id="ckkAll">
+                                        <label class="custom-control-label" for="ckkAll"></label>
+                                    </div>
+                                </th>
+                                <th>Hình Ảnh</th>
+
+                                <th scope="col" class="text-dark text-deconration-none">
+                                    <a class="a-sort" href="">Tên sản phẩm <i class='fas fa-sort'></i></a>
+                                </th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Số lượng</th>
+                            </tr>
+
+                            <tr *ngFor="let product of products">
+
+                                <td>
+                                    <div class="custom-checkbox custom-control">
+                                        <input type="checkbox" class="custom-control-input chk-item" value="@item.ID"
+                                            id="ckkAll_@item.ID">
+                                        <label class="custom-control-label" for="ckkAll_@item.ID"></label>
+                                    </div>
+                                </td>
+
+
+                                <td class="text-left">
+                                    <img class="img-thumbnail" [src]="product.product.image" height="150" width="150" />
+                                </td>
+
+                                <td class="text-left">
+                                    {{product.productName}}
+                                </td>
+                                <td class="text-left">
+                                    {{product.price}}
+                                </td>
+                                <td class="text-left">
+                                    {{product.quantity}}
+                                </td>
+
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+              
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<!-- <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button> -->

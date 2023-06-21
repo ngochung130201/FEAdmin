@@ -1,0 +1,109 @@
+
+
+<div class="section-header">
+    <h1>Danh sách bình luận</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a asp-action="Index" asp-controller="Home">Trang chủ</a></div>
+        <div class="breadcrumb-item">bình luận</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Danh sách bình luận</h4>
+                <div class="card-header-action">
+                    
+                    <form  class="search-form" autocomplete="off" asp-action="Index" asp-controller="Contacts" method="get" >
+                        <div class="input-group">                            
+                            <input type="text" class="form-control" name="searchString" value="" placeholder="Từ khóa">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body p-0">
+         
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr class="text-left">
+                                <th scope="col">
+                                    <div class="custom-checkbox custom-control">
+                                        <input type="checkbox" class="custom-control-input" id="ckkAll">
+                                        <label class="custom-control-label" for="ckkAll"></label>
+                                    </div>
+                                </th>
+                                <th scope="col" class="text-dark text-deconration-none">
+                                    <a class="a-sort" href="">Ngày bình luận <i class='fas fa-sort'></i></a>
+                                </th>
+                      
+                               
+                                <th>Tên</th>
+                                <th>Email</th>
+                                <th>Nội dung</th>
+                                <th>Sản phẩm</th>
+                                <th>Ngày bình luận</th>
+                                <th scope="col">Hành động</th>
+                            </tr>
+                           
+                                <tr *ngFor="let productComment of getProductComments">
+                                    <td>
+                                       <div class="custom-checkbox custom-control">
+                                           <input type="checkbox" class="custom-control-input chk-item" value="@item.ID" id="ckkAll_@item.ID">
+                                           <label class="custom-control-label" for="ckkAll_@item.ID"></label>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       {{productComment.createDate}}
+                                    </td>
+                                    <td>
+                                       {{productCommentName}}
+                                    </td>
+                                    <td>
+                                       {{productComment.email}}
+                                    </td>
+                                   
+                                    <td>
+                                       {{productComment.detail}}
+                                    </td>
+                                    <td>
+                                        {{productName}}
+                                     </td>
+                                    <td>
+                                        {{productComment.createDate}}
+                                     </td>
+                                    <td>
+                                       <a routerLink="/ProductComment/Detail/{{productComment.commentID}}" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Chi tiết" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                       <button style="width: 100%;"  (click)="openDialogWithTemplateRef(myDialog,productComment.commentID,productCommentName)"
+                                       class="btn btn-danger  d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                  <!-- Dialog template -->
+                                  <ng-template #myDialog let-data>
+                                    <h2 matDialogTitle>Xóa bình luận </h2>
+                                    <mat-dialog-content>
+                                      <p>Bạn có chắc muốn xóa bình luận  {{data.commentName}}</p>
+                                    </mat-dialog-content>
+                                    <mat-dialog-actions align="end">
+                                        <button mat-button matDialogClose="no">Hủy</button>
+                                      <button  mat-raised-button  color="warn"  matDialogClose  (click)="handleDelete(data.commentID)" >Xóa</button>
+                                    </mat-dialog-actions>
+                                  </ng-template>
+                                  <!-- Dialog template #2 -->
+                              
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        
+
+        </div>
+    </div>
+</div>

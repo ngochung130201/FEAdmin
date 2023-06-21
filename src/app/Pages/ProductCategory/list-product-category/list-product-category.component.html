@@ -1,50 +1,21 @@
 
 <div class="section-header">
-    <h1>Danh sách sản phẩm</h1>
+    <h1>Danh sách Loại sản phẩm</h1>
     <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a asp-action="Index" asp-controller="Home">Trang chủ</a></div>
-        <div class="breadcrumb-item">Sản phẩm</div>
+        <div class="breadcrumb-item">Thương hiệu</div>
     </div>
 </div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4>Danh sách sản phẩm</h4>
+                <h4>Danh sách Loại sản phẩm</h4>
                 <div class="card-header-action">
-                    <a routerLink="/Product/Add"  class="btn btn-info"><i class="fas fa-plus"></i> Thêm sản phẩm </a>
+                    <a routerLink="/ProductCategory/Add"  class="btn btn-info"><i class="fas fa-plus"></i> Thêm Loại sản phẩm </a>
                     
-                    <div class="dropdown show">
-                        <a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle" aria-expanded="true">Hành động</a>
-                        <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                            <li><a class="dropdown-item delete-all" href="javascript:void(0);" data-url="/Admin/Products/DeleteAll">Xóa mục chọn</a></li>
-                            <li>
-                                <a class="dropdown-item updated-multiple" href="javascript:void(0);" data-url="/Admin/Products/UpdatedMultiple"
-                                   data-type="status_processing">Mở xử lý mục chọn</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item updated-multiple" href="javascript:void(0);" data-url="/Admin/Products/UpdatedMultiple"
-                                   data-type="status_cancel">Hủy mục chọn</a>
-                            </li>
-                        </ul>
-                    </div>
+                   
 
-                    <form class="search-form" autocomplete="off" asp-action="Index" asp-controller="Products" method="get">
-                        <div class="input-group">
-                            <select name="filterBy" class="btn btn-warning dropdown-toggle">
-                                <option value="all">Lọc theo</option>
-                                <option value="all">Tất cả</option>
-                                <option value="construction">Công trình</option>
-                                <option value="product">Sản phẩm</option>
-                            </select>
-                           
-                            <input type="text" class="form-control" name="searchString"  placeholder="Từ khóa">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                            </div>
-
-                        </div>
-                    </form>
                 </div>
             </div>
             <div class="card-body p-0">
@@ -60,73 +31,85 @@
                                         <label class="custom-control-label" for="ckkAll"></label>
                                     </div>
                                 </th>
-                                <th>Hình Ảnh</th>
-
-                                <th scope="col" class="text-dark text-deconration-none">
-                                    <a class="a-sort" href="">Tên sản phẩm <i class='fas fa-sort'></i></a>
-                                </th>
-                                <th scope="col">Liên kết</th>
                               
-                                <th scope="col">Trạng thái</th>
+                               
+                                <th scope="col" class="text-dark text-deconration-none">
+                                    <a class="a-sort" href="">Tên Loại sản phẩm <i class='fas fa-sort'></i></a>
+                                </th>
+                                <th>Liên kết</th>
+                                <th>Ngày tạo </th>
+                                <th>Ngày cập nhật</th>
                                 <th scope="col">Hành động</th>
                             </tr>
                            
-                                <tr>
+                                <tr *ngFor="let productCategory of getProductCategorys">
                                     <td>
                                         <div class="custom-checkbox custom-control">
                                             <input type="checkbox" class="custom-control-input chk-item" value="@item.ID" id="ckkAll_@item.ID">
                                             <label class="custom-control-label" for="ckkAll_@item.ID"></label>
                                         </div>
                                     </td>
-                                   
-                                        
-                                            <td class="text-left">
-                                                <img class="img-thumbnail" src="/media/Products/@item.ID/Gallery/@gallery" height="150" width="150" />
-                                            </td>
+                            
+                
+                                    <td class="text-left">
+                                        {{productCategory.productCateName}}
+             
+                                    </td>
+                                    
+                                    <td class="text-left">
+                                        {{productCategory.slug}}
+             
+                                    </td>
+                                    <td class="text-left">
+                                        {{productCategory.createDate}}
+             
+                                    </td>
+                                    <td class="text-left">
+                                        {{productCategory.updateDate}}
+             
+                                    </td>
+                                    
+                                    <td>
+                                        <a style="width: 100%;" routerLink="Edit/{{productCategory.slug}}" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Sửa" data-placement="bottom"><i class="fas fa-pencil-alt"></i></a>
                                        
-                                            <td class="text-left">
-                                                <img src="/media/no_image.png" />
-                                            </td>
-                                      
-                                  
-                                   
-                                        <td class="text-left">
-                                            <img src="" class="img-thumbnail" alt="@item.Slug" height="150" width="150">
-                                        </td>
-                                   
-                                    <td class="text-left">
-                                        @item.Title
-                                    </td>
-                                    <td class="text-left">
-                                        @item.Slug
-                                    </td>
-                                    <td class="text-left">
-                              
-                                </td>
-                                    <td>
-                                        
-                                            <span class="badge badge-info">Hiển thị</span>
-                                      
-                                      
-                                    </td>
-                                    <td>
-                                        <a style="width: 100%;" routerLink="/Product/Edit" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Sửa" data-placement="bottom"><i class="fas fa-pencil-alt"></i></a>
-                                        
-                                        <button style="width: 100%;" (click)="openDialog('0ms', '0ms')" class="btn btn-danger  d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></button>
+                                        <button style="width: 100%;" (click)="openDialogWithTemplateRef(myDialog,productCategory.slug,productCategory.productCateName)" class="btn btn-danger  d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></button>
+                                       
                                     </td>
                                 </tr>
-
-                     
+                           
+                                  <br>
+                                 
+                               
+                                  <!-- Dialog template -->
+                                  <ng-template #myDialog let-data>
+                                    <h2 matDialogTitle>Xóa Loại sản phẩm </h2>
+                                    <mat-dialog-content>
+                                      <p>Bạn có chắc muốn xóa Loại sản phẩm  {{data.productCateName}}</p>
+                                    </mat-dialog-content>
+                                    <mat-dialog-actions align="end">
+                                        <button mat-button matDialogClose="no">Hủy</button>
+                                      <button mat-raised-button matDialogClose (click)="handleDelete(data.slug)" color="warn">Xóa</button>
+                                    </mat-dialog-actions>
+                                  </ng-template>
+                                  <!-- Dialog template #2 -->
+                              
+                                  
                         </tbody>
                     </table>
                 </div>
             </div>
-
-
+            <ng-template #callAPIDialog>
+                <h2 matDialogTitle>Hello dialog!</h2>
+                <mat-dialog-actions align="end">
+                    <button mat-button matDialogClose="no">No</button>
+                    <button mat-button matDialogClose="yes">Yes</button>
+                </mat-dialog-actions>
+            </ng-template>
+           
             <div class="card-footer data_paginate text-left">
               
             </div>
-
+         
         </div>
     </div>
 </div>

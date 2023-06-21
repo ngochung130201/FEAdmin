@@ -1,0 +1,219 @@
+
+<div class="section-header">
+    <h1>Danh sách đơn hàng</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a asp-action="Index" asp-controller="Home">Trang chủ</a></div>
+        <div class="breadcrumb-item">đơn hàng</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+             
+                <h4>Danh sách đơn hàng</h4>
+                <div class="card-header-action">
+                  
+                    
+                    
+
+                    <form  [formGroup]="orderFormSeach" class="search-form" autocomplete="off" asp-action="Index" asp-controller="Orders" method="get">
+                        <div class="input-group">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Lọc theo</mat-label>
+                                <mat-select formControlName="sorts">
+                                  <mat-option *ngFor="let sort of listSort" [value]="sort.value +'_' + sort.typeSort">
+                                    {{sort.name}}
+                                </mat-option>
+                            </mat-select>
+                           
+                              </mat-form-field>
+                          
+                        
+                            <input type="text" autofocus formControlName="search" class="form-control" name="searchString"  placeholder="Từ khóa">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body p-0">
+              
+                
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr class="text-left">
+                                <th scope="col">
+                                    <div class="custom-checkbox custom-control">
+                                        <input type="checkbox" class="custom-control-input" id="ckkAll">
+                                        <label class="custom-control-label" for="ckkAll"></label>
+                                    </div>
+                                </th>
+                            
+                                <th>Ngày đặt</th>
+                                <th>Tên khách hàng</th>
+                                <th scope="col" class="text-dark text-deconration-none">
+                                    <a class="a-sort" href=""> Địa chỉ <i class='fas fa-sort'></i></a>
+                                </th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Nhân viên giao hàng</th>
+                               
+                                <th scope="col">Hành động</th>
+                            </tr>
+                           
+                                <tr *ngFor="let order of orders">
+                                    <td>
+                                        <div class="custom-checkbox custom-control">
+                                            <input type="checkbox" class="custom-control-input chk-item" value="@item.ID" id="ckkAll_@item.ID">
+                                            <label class="custom-control-label" for="ckkAll_@item.ID"></label>
+                                        </div>
+                                    </td>
+                                   
+                                        
+                                         
+                     
+                                   
+                                    <td class="text-left">
+                                        {{order.orderDate | date: 'dd/MM/yyyy' }}
+                                   
+                                        
+                                    </td>
+                                    <td class="text-left">
+                                        {{order.fullName}}
+                                   
+                                    </td>
+                                    <td class="text-left">
+                                      
+                                        {{order.address}}
+                                   
+                                    </td>
+                                    <td class="text-left">
+                                        {{order.phone}}
+                                   
+                                    </td>
+                                    <td class="text-left ">
+                                        <div class="text-hidden">
+                                          {{order.email}}
+                                        </div>
+                                   
+                                    </td>
+                                    <td class="text-left">
+                                        {{order.totalAmount | currency:'VND':'symbol'}}
+                                   
+                                    </td>
+                                    <td class="">
+                                      <mat-form-field >
+                                        <mat-label>Trạng thái  </mat-label>
+                                        <mat-select [(ngModel)]="order.isStatus" (ngModelChange)="handleSelectionChange($event)"  >
+                                          <!-- <mat-option>{{order.isStatus}}</mat-option> -->
+                                          <mat-option  *ngFor="let status of listStatusOrder" [value]="status.value">
+                                          
+                                            {{status.name}}
+                                        
+                                          <!-- {{order.isStatus}} -->
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                  
+                                       
+                                    </td>
+                                  
+                                    <td class="">
+                                      <mat-form-field class="w-100">
+                                        <mat-label>Nhân viên</mat-label>
+                                        <mat-select [(ngModel)]="order.memberId" (ngModelChange)="handleSelectionUserChange($event)">
+                                          <mat-option *ngFor="let user of listUserEmail" [value]="user.UserID">
+                                            {{ user.UserName }}
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                      
+                                  
+                                       
+                                    </td>
+                                
+                                    <td>
+                                      <a routerLink="/Detail/{{order.orderID}}" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Chi tiết" data-placement="bottom"><i class="fa fa-eye"></i></a>
+                                        <button style="width: 100%;" (click)="HandleEdit(order.orderID)" class="btn btn-primary d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Sửa" data-placement="bottom"><i class="fas fa-pencil-alt"></i>
+                                        
+                                        </button>
+                                       
+                                        <button style="width: 100%;" (click)="openDialogWithTemplateRef(myDialog,order.orderID,order.fullName)" class="btn btn-danger  d-inline d-sm-block m-sm-1" data-toggle="tooltip" title="Xóa" data-placement="bottom"><i class="fas fa-trash"></i></button>
+                                       
+                                    </td>
+                                </tr>
+                           
+                                  <br>
+                                 
+                               
+                                  <!-- Dialog template -->
+                                  <ng-template #myDialog let-data>
+                                    <h2 matDialogTitle>Xóa đơn hàng </h2>
+                                    <mat-dialog-content>
+                                      <p>Bạn có chắc muốn xóa đơn hàng  {{data.fullName}}</p>
+                                    </mat-dialog-content>
+                                    <mat-dialog-actions align="end">
+                                        <button mat-button matDialogClose="no">Hủy</button>
+                                      <button  mat-raised-button  color="warn"  matDialogClose  (click)="handleDelete(data.orderID)" >Xóa</button>
+                                    </mat-dialog-actions>
+                                  </ng-template>
+                                  <!-- Dialog template #2 -->
+                                  <div class="loading-overlay" *ngIf="loading">
+                                    <mat-spinner class="loading-spinner"></mat-spinner>
+                                  </div>
+                              
+                                  
+                        </tbody>
+                   
+                    </table>
+                    <div class="pt-4 pb-4" style="display: flex; align-items: center; justify-content:space-between;" >
+                        <div class="">
+                            <ul class="pagination pagination-circle pg-blue">
+                               
+                                <li class="page-item " (click)="OnActionPaging(false,currentPageNumber,pageSize)">
+                                  <a class="page-link" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                </li>
+                                <li class="page-item " 
+                                (click)="OnHandlePaging(i+1,pageSize)"
+                                [ngClass]="i+1 == currentPageNumber ? 'active' : '' " *ngFor="let item of counter(totalPages);let i =index" ><a class="page-link">{{i+1}}</a></li>
+                               
+                                <li class="page-item" (click)="OnActionPaging(true,currentPageNumber,pageSize)">
+                                  <a class="page-link" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                  </a>
+                                </li>
+                               
+                              </ul>
+                        </div>
+                        <mat-paginator [length]="totalRecord"
+                        [pageSize]="pageSize"
+                        (page)="handlePageEvent($event)"
+                        [length]="totalRecord"
+                        [disabled]="disabled"
+                        [pageSizeOptions]="listPageSize "
+                        aria-label="Select page">
+                  </mat-paginator>
+                    </div>
+                </div>
+            </div>
+            
+           
+            <div class="card-footer data_paginate text-left">
+              <button (click)="HandleExportCsv()" mat-raised-button color="accent">Xuất file</button>
+            </div>
+         
+        </div>
+    </div>
+</div>
+
+<!-- <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button> -->

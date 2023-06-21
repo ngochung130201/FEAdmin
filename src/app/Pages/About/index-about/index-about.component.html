@@ -17,230 +17,56 @@
                     <div class="card-header">
                         <h4>Thông tin cài đặt</h4>
                     </div>
-       
+                    <form action="" [formGroup]="AboutFormEdit" (submit)="OnSubmit()">
+                        
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label asp-for="SiteName" class="col-md-3"></label>
-                                    <div class="col-md-12">
-                                        <input asp-for="SiteName" class="form-control input-md"  placeholder="Tên website"/>
-                                        
-                                        <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label asp-for="Phone" class="col-md-3"></label>
-                                    <div class="col-md-12">
-                                        <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                        <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                       
+                                          
                         
-                        <div class="form-group">
-                            <label asp-for="Hotline" class="col-md-6"></label>
+                    
+                        <div class="form-group mb-3">
+                            <label class="col-md-3">Tiêu đề</label>
                             <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
+                                <input name="MetaTitle" formControlName="tilte" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề  " type="text" value="">
+                                <span class="field-validation-valid"  data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label asp-for="CustomerEmail" class="col-md-3"></label>
-                                    <div class="col-md-12">
-                                        <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                        <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label asp-for="SupportEmail" class="col-md-3"></label>
-                                <div class="col-md-12">
-                                    <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                    <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>                        
-                        
-                        <div class="form-group">
-                            <label asp-for="Address" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="MetaTitle" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="MetaKeywords" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="MetaDescriptions" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Pinterest</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Google Plus</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Site Google</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">LinkedIn</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
+                       
+                        <div class="form-group mt-3">
                             <label class="col-md-3">Facebook</label>
                             <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
+                                <input name="Facebook"  formControlName="facebook" class="form-control" id="producttranslate_metatitle" name="Facebook" placeholder="Facebook" type="text" value="">
                                 <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label class="col-md-3">Zalo</label>
                             <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
+                                <input name="Zalo" formControlName="zalo" class="form-control" id="producttranslate_metatitle" name="Zalo" placeholder="Zalo" type="text" value="">
                                 <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Twitter</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Instagram</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">YouTube</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Website</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3">Copyright</label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Scripts" class="col-md-3"></label>
-                            <div class="col-md-12">
-                               
-                                <textarea asp-for="AdditionDescription" class="form-control input-md" rows="3" placeholder="Giới thiệu ngắn"></textarea>
-                                <span asp-validation-for="AdditionDescription" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Intro" class="col-md-3"></label>
-                            <div class="col-md-12">
-                             
-                                <textarea asp-for="AdditionDescription" class="form-control input-md" rows="3" placeholder="Giới thiệu ngắn"></textarea>
-                                <span asp-validation-for="AdditionDescription" class="text-danger"></span>
-                            </div>
-                        </div>
+                     
+                        
+                       
+                      
+                      
+                      
                         
                         <div class="form-group">
-                            <label asp-for="About" class="col-md-3"></label>
+                            <label name="About" class="col-md-3">Mô tả về cửa hàng</label>
                             <div class="col-md-12">
-                                <textarea asp-for="About" class="form-control input-md" rows="3" placeholder="Về công ty"></textarea>
+                                <textarea name="About" formControlName="description" class="form-control input-md" rows="3" placeholder="Về công ty"></textarea>
                                 <span asp-validation-for="About" class="text-danger"></span>
                             </div>
                         </div>
-                        <hr />
-                        <div class="form-group">
-                            <label asp-for="AdditionTitle" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="AdditionDescription" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <textarea asp-for="AdditionDescription" class="form-control input-md" rows="3" placeholder="Mô tả thông tin thêm"></textarea>
-                                <span asp-validation-for="AdditionDescription" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <hr />
-                        <i>Cấu hình Footer bằng thẻ HTML:</i>
-                        <ul>
-                            <li>Vào Page thông tin</li>
-                            <li>Tạo hoặc chỉnh sửa Page</li>
-                            <li>Copy tiêu đề Page vào thẻ 'a'</li>
-                            <li>Copy chuyển hướng Page vào 'href' của thẻ 'a'</li>
-                        </ul>
-                        <div class="form-group">
-                            <label asp-for="FooterColumn1" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <textarea asp-for="FooterColumn1" rows="10" cols="150" placeholder="Footer cột 1 (html)"></textarea>
-                                <span asp-validation-for="FooterColumn1" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="FooterColumn2" class="col-md-3"></label>
-                            <div class="col-md-12">
-                                <textarea asp-for="FooterColumn2" rows="10" cols="150" placeholder="Footer cột 2 (html)"></textarea>
-                                <span asp-validation-for="FooterColumn2" class="text-danger"></span>
-                            </div>
-                        </div>
+                      
+                       
                     </div>
                     <div class="card-footer text-right">
-                        <a asp-action="Index" asp-controller="Settings" class="btn btn-flat btn-xs btn-danger"><i class="fas fa-undo"></i> Hủy</a>
+                        <a  class="btn btn-flat btn-xs btn-danger mr-3"><i class="fas fa-undo"></i> Hủy</a>
                         <button type="submit" class="btn btn-flat btn-xs btn-primary"><i class="fas fa-check"></i> Lưu thay đổi </button>
                     </div>
                 </div>
+                    </form>
             </div>
         </div>
     </div>

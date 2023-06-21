@@ -1,0 +1,63 @@
+<div class="section-header">
+    <h1>Tạo Mới</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">Trang chủ</a></div>
+        <div class="breadcrumb-item">Tạo mới</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4>Thông tin menu</h4>
+            </div>
+            <div class="row">
+    
+               <div class="col-md-12">
+                   <form [formGroup]="menuFormEdit" (submit)="HandleUpdate()" class="form-horizontal row-border" method="post" enctype="multipart/form-data">
+                       
+                        <div class="card-body">
+                            <input name="__requestverificationtoken" type="hidden" value="blxlgjcghizjz3y8iyphk08-dc-lydjgnftb_laceseoovelgurch9vpjsolqxhp-veyogmiiez2b-fte3d7mc8ehgik1ptjzgt5fcxim_cdxamdljj0ylqzuyt2lbmv0">                        
+                            <div class="form-group">
+                                <label  class="col-md-3 control-label">Tên menu</label>
+                                <div class="col-md-12">
+                                    <input formControlName="name"  class="form-control" id="translate_MenuName" name="name" type="text" placeholder="Tên menu">
+                                    <span  class="fst-italic text-danger input-validation"></span>
+                                </div>
+                            </div>
+                          
+                           <div class="form-group">
+                                <label class="col-md-3 control-label">Trạng thái</label>
+                                <div class="col-md-12">
+                                    <section class="example-section" [formGroup]="hanldeStatus">
+                              
+                                        <p><mat-checkbox formControlName="status">Hiển thị</mat-checkbox></p>
+                                      
+                                      </section>
+                                </div>
+                            </div>
+                            
+                        
+                          
+                         
+                           
+                          
+                            
+                        </div>
+                          <div class="card-footer text-right">
+                                <div class="bu-group">
+                                    <div class="form-group-center" id="text-center">
+                                        <button type="submit"  class="btn btn-success mr-2"><i class="fa fa-check"></i> Tạo mới </button>
+                                        <a  class="btn btn-danger"><i class="fa fa-times"></i> Hủy bỏ</a>
+                                    </div>
+                                </div>
+                          </div>
+                    </form>
+               </div>
+        
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

@@ -16,24 +16,26 @@ export class ProductService {
 
   // int currentPageNumber, int pageSize,
   //string sort, string dir, string where, string search
-  public getAllProduct(currentPageNumber?: number, pageSize?: number, sort?: string,typeSort? : string,search?:string): Observable<any> {
-    return this.http.get<TypeProducts[]>(`${this.baseUrl}?currentPageNumber=1&pageSize=2`);
+  public getAllProduct(currentPageNumber?: number, pageSize?: number, sort?: string,typeSort? : string,search?:string,where?:string): Observable<any> {
+    
+    return this.http.get<TypeProducts[]>(`${this.baseUrl}?currentPageNumber=${currentPageNumber}&pageSize=${pageSize}&sort=${sort}&typeSort=${typeSort}
+    &where=${where}&search=${search}`);
   }
 
-  public deleteProduct(id: string): Observable<TypeProducts[]> {
-    return this.http.delete<TypeProducts[]>(`${this.baseUrl}/${id}`);
+  public deleteProduct(slug: string): Observable<TypeProducts[]> {
+    return this.http.delete<TypeProducts[]>(`${this.baseUrl}/${slug}`);
   }
 
   public createProduct(data: any): Observable<string> {
     return this.http.post<string>(`${this.baseUrl}`, data);
   }
 
-  public getProduct(slug: string): Observable<TypeProducts> {
-    return this.http.get<TypeProducts>(`${this.baseUrl}/${slug}`);
+  public getProduct(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${slug}`);
   }
 
-  public updateProduct(id: string, data: TypeProducts) {
-    return this.http.put(`${this.baseUrl}/${id}`, data);
+  public updateProduct(slug: string, data: any) {
+    return this.http.put(`${this.baseUrl}/${slug}`, data);
   }
 
   public deleteProductAll(data: any): Observable<any> {

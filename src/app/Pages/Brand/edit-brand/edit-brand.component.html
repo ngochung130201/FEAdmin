@@ -9,104 +9,61 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-header">
-                <h4>Thông tin sản phẩm</h4>
+                <h4>Thông tin thương hiệu</h4>
             </div>
             <div class="row">
     
                <div class="col-md-12">
-                   <form asp-action="Create" asp-controller="Products" class="form-horizontal row-border" method="post" enctype="multipart/form-data">
+                   <form  [formGroup]="brandFormEdit" method="post" (ngSubmit)="HanldeEditupload()" class="form-horizontal row-border" method="post" enctype="multipart/form-data">
                        
                         <div class="card-body">
                             <input name="__requestverificationtoken" type="hidden" value="blxlgjcghizjz3y8iyphk08-dc-lydjgnftb_laceseoovelgurch9vpjsolqxhp-veyogmiiez2b-fte3d7mc8ehgik1ptjzgt5fcxim_cdxamdljj0ylqzuyt2lbmv0">                        
                             <div class="form-group">
-                                <label asp-for="Title" class="col-md-3 control-label">Tiêu đề</label>
+                                <label asp-for="brandName" class="col-md-3 control-label">Tên thương hiệu</label>
                                 <div class="col-md-12">
-                                    <input asp-for="Title" class="form-control" id="translate_title" name="title" type="text" placeholder="Tiêu đề">
+                                    <input asp-for="brandName" formControlName="brandName" name="brandName" class="form-control" id="translate_title"  type="text" placeholder="Tên thương hiệu">
                                     <span asp-validation-for="Title" class="fst-italic text-danger input-validation"></span>
                                 </div>
                             </div>
-                           <div class="form-group">
-                                <label class="col-md-3 control-label">Liên kết</label>
-                                <div class="col-md-12">
-                                    <input asp-for="Slug" class="form-control" id="translate_urlredirect" name="Slug" placeholder="Liên kết" type="text">
-                                    <span asp-validation-for="Slug" class="fst-italic text-danger input-validation"></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="H2Title" class="col-md-3 control-label">Tiêu đề H2</label>
-                                <div class="col-md-12">
-                                    <input asp-for="H2Title" class="form-control" id="translate_title" name="H2Title" type="text">
-                                    <span asp-validation-for="H2Title" class="fst-italic text-danger input-validation"></span>
-                                </div>
-                            </div>
-                  
-                            <div class="form-group">
-                                <label asp-for="CollectionID" class="col-md-3 control-label">Nhóm sản phẩm</label>
-                                <div class="col-md-12">
-                                    <select asp-for="CollectionID" class="form-control select2" data-val="true" id="collection_parentid" asp-items="@ViewBag.Collections">
-                                        <option value="">Chọn nhóm sản phẩm cha</option>
-
-                                    </select>
-                                </div>
-                                <span class="field-validation-valid" data-valmsg-for="collectiontranslate.urlredirect" data-valmsg-replace="true"></span>
-                            </div>
                           
-                           
+                         
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Banner</label>
-                                <div class="col-md-8">
-                                      <input class="m-2" name="file" type="file"  id="upload-banner"
+                                <label class="col-md-3 control-label">Hình ảnh</label>
+                                <div class="col-md-8" height="20px">
+                                      <input class="m-2"  (change)="handleFileInput($any($event.target).files)" [disabled]="working" name="file"  type="file"  id="upload-banner"
                                                            accept=".jpeg,.png,.jpg,.gif,.svg" />
                                 </div>
                             </div>
-           
-                            <div class="form-group">
-                                <label>Hình Ảnh + gallery</label>
-                                <p style="color:red"> Hình ảnh sản phẩm sẽ hiển thị hình ảnh đầu tiên</p>
-                                <div id="dropzoneForm" class="dropzone">
-                                    <div class="dz-default dz-message">
-                                        <div class="dz-icon icon-wrap icon-circle icon-wrap-md">
-                                            <i class="fa fa-cloud-upload fa-3x"></i>
-                                        </div>
-                                        <div>
-                                            <p class="dz-text">Kéo thả file</p>
-                                            <p class="text-muted">hoặc click để upload</p>
-                                        </div>
-                                    </div>
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple />
-                                    </div>
+                            <div class="row mt-5">
+                                <div class="col">
+                                  <div class="custom-file">
+                                    <input type="file"  class="custom-file-input" id="customFile" (change)="handleFileInput($any($event.target).files)" [disabled]="working">
+                                    <label class="custom-file-label" for="customFile">{{ uploadFileLabel }}</label>
+                                  </div>
                                 </div>
-                                <div id="morkFile" class="hidden"></div>
-                            </div>
-                        
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Tiêu đề SEO</label>
-                                <div class="col-md-12">
-                                    <input asp-for="MetaTitle" class="form-control" id="producttranslate_metatitle" name="MetaTitle" placeholder="Tiêu đề SEO" type="text" value="">
-                                    <span class="field-validation-valid" data-valmsg-for="producttranslate.metatitle" data-valmsg-replace="true"></span>
+                                <div class="col-auto pl-sm-0">
+                                  <button type="button" class="btn btn-outline-primary" ngbTooltip="Upload" (click)="HanldeEditupload()" [disabled]="working">Upload</button>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Từ khóa SEO</label>
-                                <div class="col-md-12">
-                                    <div class="bootstrap-tagsinput"><input asp-for="MetaKeyword" name="MetaKeyword" type="text" placeholder="Từ khóa SEO"></div><input asp-for="MetaKeyword" class="form-control tagsinput" id="producttranslate_metakeyword" name="MetaKeyword" placeholder="từ khóa SEO" type="text" value="" style="display: none;">
-                                    <span class="field-validation-valid" data-valmsg-for="producttranslate.metakeyword" data-valmsg-replace="true"></span>
+                              </div>
+                              <div class="row mt-3" *ngIf="working">
+                                <div class="col">
+                                  <div class="progress">
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploadProgress + '%' }" [attr.aria-valuenow]="uploadProgress" aria-valuemin="0" aria-valuemax="100">{{ uploadProgress }}%</div>
+                                  </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Miêu tả SEO</label>
-                                <div class="col-md-12">
-                                    <textarea asp-for="MetaDescription" class="form-control" cols="20" id="producttranslate_metadescription" name="MetaDescription" placeholder="Miêu tả SEO" rows="3"></textarea>
-                                    <span class="field-validation-valid" data-valmsg-for="producttranslate.metadescription" data-valmsg-replace="true"></span>
+                              </div>
+                              <div></div>
+                              <div class="row mt-3" *ngIf="uploadUrl?.length">
+                                <div class="col">
+                                  <img [src]="uploadUrl" alt="preview" class="rounded shadow w-100">
                                 </div>
-                            </div>
+                              </div>
                         </div>
                           <div class="card-footer text-right">
                                 <div class="bu-group">
                                     <div class="form-group-center" id="text-center">
-                                        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Tạo mới </button>
-                                        <a asp-action="Index" asp-controller="Products" class="btn btn-danger"><i class="fa fa-times"></i> Hủy bỏ</a>
+                                        <button type="submit" class="btn btn-success mr-2"><i class="fa fa-check"></i> Tạo mới </button>
+                                        <a asp-action="Index"  asp-controller="Products" class="btn btn-danger text-white"><i class="fa fa-times"></i> Hủy bỏ</a>
                                     </div>
                                 </div>
                           </div>

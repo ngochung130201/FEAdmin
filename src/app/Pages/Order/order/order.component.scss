@@ -1,0 +1,33 @@
+.table:not(.table-sm):not(.table-md):not(.dataTable) td,
+.table:not(.table-sm):not(.table-md):not(.dataTable) th {
+    padding: 0 10px !important
+    
+}
+.text-hidden {
+    width: 50px; /* Set the desired width for the container */
+    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+    overflow: hidden; /* Hide the overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis (...) at the end of the text */
+  }
+  .w-100 {
+    width: 100px;
+  }
+
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+  }
+  
